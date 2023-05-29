@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Models\User;
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -15,4 +18,10 @@
 
 $router->get('/', function () use ($router) {
     return 'hello world';
+});
+
+$router->get('/users' , function () use ($router) {
+    $users = User::all();
+
+    return response()->json($users);
 });
