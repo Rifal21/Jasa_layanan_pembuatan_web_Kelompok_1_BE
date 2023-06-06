@@ -6,6 +6,7 @@ use App\Models\Layanan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
+
 class LayananFactory extends Factory
 {
     protected $model = Layanan::class;

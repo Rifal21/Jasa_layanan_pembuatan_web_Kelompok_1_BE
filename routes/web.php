@@ -33,7 +33,7 @@ $router->get('/layanan' , function () use ($router) {
     return response()->json($layanan);
 });
 
-$router->group(['prefix'=> 'auth'], function () use ($router) {
+$router->group(['prefix'=> 'auth' ], function () use ($router) {
     $router->post('/login' , 'AuthController@login');
     $router->post('/register' , 'AuthController@register');
 

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(LayananSeeder::class);
-        // factory(Layanan::class , 10)->create();
+        $this->call(User::class , 10);
 
     }
 }
