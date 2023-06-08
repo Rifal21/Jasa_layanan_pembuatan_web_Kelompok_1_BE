@@ -70,6 +70,7 @@ class AuthController extends Controller
         ]);
         return response()->json([
             'users' => $user,
+            'token' =>$generateToken
             
         ]);
     }

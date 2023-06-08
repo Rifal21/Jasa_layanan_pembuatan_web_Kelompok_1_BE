@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\RoleUserController;
 use App\Models\User;
 use App\Models\Layanan;
 
@@ -27,7 +27,13 @@ $router->get('/users' , function () use ($router) {
     return response()->json($users);
 });
 
-
+$router->group(['prefix' => 'dashboard'] , function() use ($router) {
+    $router->get('/role', 'RoleUserController@index');
+    $router->get('/role/{id}', 'RoleUserController@show');
+    $router->post('/role/create', 'RoleUserController@store');
+    $router->post('/role/update/{id}', 'RoleUserController@update');
+    $router->delete('/role/delete/{id}', 'RoleUserController@destroy');
+});
 
 $router->group(['prefix'=> 'auth' ], function () use ($router) {
     $router->post('/login' , 'AuthController@login');
