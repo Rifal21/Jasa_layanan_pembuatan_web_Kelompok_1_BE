@@ -4,6 +4,7 @@ use App\Http\Controllers\RoleUserController;
 use App\Models\User;
 use App\Models\Layanan;
 use App\Models\Portfolio;
+use App\Models\Template;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
@@ -32,6 +33,11 @@ $router->get('/portfolio' , function () use ($router) {
 
     return response()->json($portfolio);
 });
+$router->get('/template' , function () use ($router) {
+    $template = Template::all();
+
+    return response()->json($template);
+});
 
 $router->group(['prefix' => 'dashboard'] , function() use ($router) {
     $router->get('/role', 'RoleUserController@index');
@@ -45,6 +51,12 @@ $router->group(['prefix' => 'dashboard'] , function() use ($router) {
     $router->post('/portfolio/create', 'PortfolioController@store');
     $router->post('/portfolio/update/{id}', 'PortfolioController@update');
     $router->delete('/portfolio/delete/{id}', 'PortfolioController@destroy');
+
+    $router->get('/template', 'TemplateController@index');
+    $router->get('/template/{id}', 'TemplateController@show');
+    $router->post('/template/create', 'TemplateController@store');
+    $router->post('/template/update/{id}', 'TemplateController@update');
+    $router->delete('/template/delete/{id}', 'TemplateController@destroy');
 });
 
 $router->group(['prefix'=> 'auth' ], function () use ($router) {
