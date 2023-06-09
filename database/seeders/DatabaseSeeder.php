@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(LayananSeeder::class);
-        $this->call(User::class , 10);
+        $this->call(PortfolioSeeder::class , 10);
 
     }
 }
