@@ -19,7 +19,7 @@ class AuthController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:6',
         ]);
 
@@ -41,7 +41,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'email' => 'required|email:dns',
             'password' => 'required',
         ]);
 
